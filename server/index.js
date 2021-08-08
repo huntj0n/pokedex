@@ -4,6 +4,8 @@ const express = require('express');
 const massive = require('massive');
 
 //---CONTROLLERS---
+const pokeCtrl = require('./pokemonControllers');
+const authCtrl = require('./authControllers');
 
 const { SERVER_PORT, CONNECTION_STRING } = procces.env;
 
@@ -28,7 +30,7 @@ massive({
 
 //---ENDPOINTS---
 
-//team endpoints
+//pokeTeam endpoints
 app.get()
 app.post()
 app.put()
