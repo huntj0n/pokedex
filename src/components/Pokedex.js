@@ -6,6 +6,10 @@ const Pokedex = props => {
     const [pokemonData, setPokemonData] = useState({});
     const [ filter, setFilter ] = useState('');
 
+    const handleSearch = (e) => {
+        setFilter(e.target.value)
+    }
+
     useEffect (() => {
         axios
             .get(`https://pokeapi.co/api/v2/pokemon?limit=151`)
@@ -43,6 +47,8 @@ const Pokedex = props => {
 
     return (
         <div>
+            <input type="text" placeholder='search pokedex' onChange={handleSearch}/>
+
             { pokemonData ? ( 
                 <div>
                     {Object.keys(pokemonData).map(
