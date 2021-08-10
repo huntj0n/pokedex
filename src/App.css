@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
+  background-color: #61dafb;
 }
 
 .App-logo {
@@ -51,4 +52,17 @@ h1 {
   font-size: 80px;
 }
 
+.pokedex__gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 0.5fr));
+  grid-auto-rows: 200px;
+  grid-gap: 20px;
+  padding: 30px;
+}
+
+.pokeCard {
+  border: 1px solid #393d3f;
+  background-color: white;
+  border-radius: 20px;
+}
 

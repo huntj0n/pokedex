@@ -38,7 +38,7 @@ const Pokedex = props => {
         const cardInfo = `${id}. ${toFirstCharacterUppercase(name)}`
 
         return (
-            <div key={pokemonId}>
+            <div key={pokemonId} className='pokeCard'>
                 <img src={sprite} alt="" />
                 <p>{cardInfo}</p>
             </div>
@@ -50,7 +50,7 @@ const Pokedex = props => {
             <input type="text" placeholder='search pokedex' onChange={handleSearch}/>
 
             { pokemonData ? ( 
-                <div>
+                <div className='pokedex__gridContainer'>
                     {Object.keys(pokemonData).map(
                         (pokemonId)  => 
                         pokemonData[pokemonId].name.includes(filter) &&
