@@ -38,7 +38,7 @@ const Pokedex = props => {
         const cardInfo = `${id}. ${toFirstCharacterUppercase(name)}`
 
         return (
-            <div key={pokemonId} className='pokeCard'>
+            <div key={pokemonId} className='pokeCard grid-item'>
                 <img src={sprite} alt="" />
                 <p>{cardInfo}</p>
             </div>
@@ -47,7 +47,13 @@ const Pokedex = props => {
 
     return (
         <div>
-            <input type="text" placeholder='search pokedex' onChange={handleSearch}/>
+
+            <div className='pokeSearch-container'>
+                <input type="text" name='pokeSearch' className='pokeSearch-input' onChange={handleSearch}/>
+                <label htmlFor="pokeSearch" className='pokeSearch-label'  >
+                    <span className='content-search'>Search Pokemon</span>
+                </label>
+            </div>
 
             { pokemonData ? ( 
                 <div className='pokedex__gridContainer'>
