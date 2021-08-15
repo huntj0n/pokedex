@@ -21,6 +21,7 @@ const Pokemon = (props) => {
             })
     }, [pokemonId])
 
+
     const pokemonJSX = () => {
         // const { name, id, species, height, weight, types, sprites } = pokemon;
         const { name, id, sprites } = pokemon;
@@ -30,7 +31,7 @@ const Pokemon = (props) => {
         return (
             <>
                 <div className='pokemon__header'>
-                    <h1>`${id}.` {toFirstCharacterUppercase(name)}</h1>
+                    <h1>{`${id}.`} {toFirstCharacterUppercase(name)}</h1>
                     <img src={front_default} alt='pokemon' />
                 </div>
                 <div className="pokemon__main">

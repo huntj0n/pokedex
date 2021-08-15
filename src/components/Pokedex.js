@@ -5,8 +5,6 @@ import { toFirstCharacterUppercase } from '../functions';
 const Pokedex = props => {
 
     const { history } = props
-    console.log(history)
-    console.log(props)
     const [pokemonData, setPokemonData] = useState({});
     const [ filter, setFilter ] = useState('');
 
@@ -40,13 +38,12 @@ const Pokedex = props => {
 
         return (
             <div key={pokemonId} className='pokeCard' 
-            
-                // onClick={() => console.log(pokemonId)}
-                
-                onClick={() => history.push(`/${pokemonId}`)}
-                // onClick={() => console.log(props.history, pokemonId)}
-    
-            >
+                onClick={() => {
+                    let index = +pokemonId + 1
+                    history.push(`/${index}`)
+                    //pokemonId isnt incrementing properly, without the index variable it will push user to the wrong pokemon page.
+                }}>
+
                 <img src={sprite} alt="pokemon" />
                 <p>{cardInfo}</p>
             </div>
