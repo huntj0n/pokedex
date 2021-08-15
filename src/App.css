@@ -1,4 +1,4 @@
-.App {
+body {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
   background-color: #61dafb;
@@ -78,10 +78,10 @@ h1 {
   cursor: pointer;
 }
 
-.pokeSearch-container {
+.pokedex__searchContainer {
   width: 30%;
   height: 75px;
-  margin-left: 35px;
+  margin: 0 auto;
   display: flex;
   position: relative;
 }

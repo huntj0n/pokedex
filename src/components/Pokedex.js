@@ -1,8 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { toFirstCharacterUppercase } from '../functions';
 
 const Pokedex = props => {
 
+    const { history } = props
+    console.log(history)
+    console.log(props)
     const [pokemonData, setPokemonData] = useState({});
     const [ filter, setFilter ] = useState('');
 
@@ -16,7 +20,7 @@ const Pokedex = props => {
             .then((response) => {
                 const responsePokemonData = {}
 
-                response.data.results.forEach((pokemon, index) => {
+                response.data.results.forEach((pokemon, index) => {  
                     responsePokemonData[index] = {
                         id: index + 1,
                         name: pokemon.name,
@@ -28,9 +32,6 @@ const Pokedex = props => {
             .catch((err) => console.log(err))
     }, [])
 
-    const toFirstCharacterUppercase = name => 
-    name.charAt(0).toUpperCase() + name.slice(1);
-
     const getPokemonCard = (pokemonId) => {
         // console.log((pokemonData[`${pokemonId}`]))
 
@@ -38,17 +39,25 @@ const Pokedex = props => {
         const cardInfo = `${id}. ${toFirstCharacterUppercase(name)}`
 
         return (
-            <div key={pokemonId} className='pokeCard grid-item'>
-                <img src={sprite} alt="" />
+            <div key={pokemonId} className='pokeCard' 
+            
+                // onClick={() => console.log(pokemonId)}
+                
+                onClick={() => history.push(`/${pokemonId}`)}
+                // onClick={() => console.log(props.history, pokemonId)}
+    
+            >
+                <img src={sprite} alt="pokemon" />
                 <p>{cardInfo}</p>
             </div>
         )
     }
 
-    return (
-        <div>
 
-            <div className='pokeSearch-container'>
+    return (
+        <div className='pokedex'>
+
+            <div className='pokedex__searchContainer'>
                 <input type="text" name='pokeSearch' className='pokeSearch-input' onChange={handleSearch}/>
                 <label htmlFor="pokeSearch" className='pokeSearch-label'  >
                     <span className='content-search'>Search Pokemon</span>
